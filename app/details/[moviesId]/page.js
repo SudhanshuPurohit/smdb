@@ -28,9 +28,9 @@ const page = (props) => {
     return (
         <div className='mt-5'>
 
-            {(movieDetails == null) ? <div className="spinner-border text-primary d-flex justify-content-center align-items-center" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div> : (
+            {(movieDetails == null) ? <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div> : (
 
                 <div className="card mb-3 px-5 py-4 w-100 d-flex justify-content-center align-items-center details-card text-white" >
                     <div className=" d-flex  gap-4 " style={{ width: "95%" }}>
@@ -45,12 +45,12 @@ const page = (props) => {
                                 <p className="card-text">{movieDetails.overview}</p>
                                 <p className="card-text"><a className="no_click play_trailer" href={`
 https://api.themoviedb.org/3/movie/${props.params.moviesId}/videos?api_key=67794447e30bbe1db4cc58b528b5b34a`} data-site="YouTube" data-id="i3jjAm2dBeo" data-title="Play Trailer"><span class="glyphicons_v2 play"></span> Play Trailer</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    )
-}
+            )
+            }
         </div >
     )
 }
