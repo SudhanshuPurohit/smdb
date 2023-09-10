@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import popularAxios from '@/utils/popularAxios'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -12,36 +12,50 @@ const page = () => {
   const getPopularMovies = async () => {
     try {
       const { data } = await popularAxios.get("");
-      setpopularMovies(data.results)
+      setpopularMovies(data.results);
+
     }
     catch (e) {
       console.log(e);
     }
-    console.log(popularMovies);
   }
+
+  useEffect(() => {
+    console.log("get popular movies api called");
+    getPopularMovies();
+    console.log(popularMovies);
+  },[])
 
 
   return (
-    <div>Popular Cards
-      <button onClick={getPopularMovies}>getPosts</button>
+    <>
+    <div className='p-3 d-flex flex-column align-items-center justify-content-center'>
+
+    <div> <h3 className='headings m-4'>Popular Movies</h3></div>
+    <div className='d-flex flex-wrap justify-content-center ' style={{gap: "15px", width: "85%"}}>
 
 
-        {(popularMovies.length !=0)? 
-          popularMovies.map((elem,index)=>(<div key={index} className ="card" style={{width: "18rem"}}>
-          <img src="" className ="card-img-top" alt="..."/>
-          <div className ="card-body">
-            <h5 className ="card-title">Card title</h5>
-            <p className ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" className ="btn btn-primary">Go somewhere</a>
+      {(popularMovies.length != 0) ?
+        popularMovies.map((elem, index) => (<div key={index} className="card" style={{ width: "14rem" }}>
+          <img src={"https://image.tmdb.org/t/p/w500" + `${elem.poster_path}`} className="card-img-top" alt="..." />
+          <div className="card-body d-flex flex-column justify-content-between">
+            <h5 className="card-title">{elem.original_title}</h5>
+            <p className="card-text">{elem.release_date}</p>
+            <a href={"/details/" + `${elem.id}`} className="btn btn-color">Get Details</a>
           </div>
         </div>
-        )):
-          "No Movies to show "
-        }
+        )) :
+        <div class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+      }
 
-        {/* {popularMovies} */}
+      {/* {popularMovies} */}
 
     </div>
+    </div>
+
+        </>
   )
 }
 

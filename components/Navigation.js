@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <nav className="nav navbar navbar-expand-lg">
             <div className="container-fluid">
-                <a className="logo_heading" href="#">SMDB</a>
+                <Link className="logo_heading" href="/">SMDB</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,9 +19,9 @@ const Navigation = () => {
                             </a>
                             <ul className="dropdown-menu text-black">
                                 <li><Link className="dropdown-item" href="/popularMovies">Popular</Link></li>
-                                <li><a className="dropdown-item" href="#">Top Rated</a></li>
+                                <li><Link className="dropdown-item" href="/nowPlaying">Now Playing</Link></li>
                                 <li><a className="dropdown-item" href="#">Upcoming</a></li>
-                                <li><a className="dropdown-item" href="#">Now Playing</a></li>
+                                <li><a className="dropdown-item" href="#">Top Rated</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown ">

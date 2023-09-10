@@ -1,6 +1,7 @@
 "use client"
 import './globals.css'
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
@@ -17,6 +18,8 @@ export default function RootLayout({ children }) {
        <Navigation/>
 
         {children}
+
+        {/* <Footer/> */}
         </body>
     </html>
   )
