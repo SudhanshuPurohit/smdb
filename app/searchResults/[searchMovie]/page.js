@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import searchResultAxios from "@/utils/searchMovieAxios";
+import Link from 'next/link';
 
 const page = (props) => {
 
@@ -34,7 +35,10 @@ const page = (props) => {
   <span className="visually-hidden">Loading...</span>
 </div> : (
                 searchResult.map((elem, index)=>(
-                    (elem.poster_path == null)?" ":<div key = {index} className ="card mb-3" style={{width: "80%"}}>
+                    (elem.poster_path == null)?" ":
+      <Link href={`/details/${elem.id}`} style={{textDecoration:"none", width:"80%" }} key = {index} className ="card mb-3" >
+
+                    <div  >
                     <div className ="row g-0">
                       <div className ="col-md-1">
                         <img src={"https://image.tmdb.org/t/p/w200" + `${elem.poster_path}` } className ="img-fluid rounded-start" alt="..."/>
@@ -43,16 +47,15 @@ const page = (props) => {
                         <div className ="card-body">
                           <h5 className ="card-title">{elem.original_title}</h5>
                           <h6 className ="card-text">{elem.release_date}</h6>
-                          <p className ="card-text">{elem.overview}</p>
+                          <p className ="card-text fix-no-line" >{elem.overview}</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                   
-                ))
-               
+      </Link>
 
-                
+                ))
+                               
             )
             }
         </div >

@@ -1,8 +1,21 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+
 
 const Navigation = () => {
+
+    const router = useRouter();
+    const [searchMovie , setSearchMovie] = useState("");
+
+    const searchSubmitHandler = (event)=>{
+        event.preventDefault();
+        router.push(`/searchResults/${searchMovie}`)
+        console.log("sudhanshu");
+      }
+
+
     return (
         <nav className="nav navbar navbar-expand-lg">
             <div className="container-fluid">
@@ -57,12 +70,10 @@ const Navigation = () => {
                                 <li><a className="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" aria-disabled="true">Link</a>
-                        </li>
+                      
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <form onSubmit={searchSubmitHandler} className="d-flex" role="search">
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchMovie} onChange={(e)=>setSearchMovie(e.target.value)} />
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>

@@ -41,7 +41,7 @@ const page = () => {
               <div className="card-body d-flex flex-column justify-content-between">
                 <h5 className="card-title">{elem.original_title}</h5>
                 <p className="card-text">{elem.release_date}</p>
-                <a href="#" className="btn btn-color">Get Details</a>
+                <a href={"/details/" + `${elem.id}`} className="btn btn-color">Get Details</a>
               </div>
             </div>
             )) :

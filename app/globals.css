@@ -1,46 +1,66 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
 }
 
-html, body{
-  width: 100%;
+html {
   height: 100%;
-  font-family: "gilroy";
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.headings{
+
+
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: "gilroy";
+  position: relative;
+  padding-bottom: 10rem;
+  box-sizing: inherit;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+.headings {
   text-align: center;
 }
 
-.btn-color{
-  background-color: rgba(3,37,65,1) !important;
+.btn-color {
+  background-color: rgba(3, 37, 65, 1) !important;
   color: white !important;
+}
+
+.fix-no-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 
 /* navigation bar */
 
-.bg-color-smdb{
-  background-color: rgba(3,37,65,1) !important;
+.bg-color-smdb {
+  background-color: rgba(3, 37, 65, 1) !important;
 }
 
-.nav{
-  background-color: rgba(3,37,65,1) !important;
+.nav {
+  background-color: rgba(3, 37, 65, 1) !important;
   padding: 10px 20px !important;
 }
 
-.nav > a{
+.nav>a {
   font-weight: 500;
 }
 
-.text-white{
+.text-white {
   color: white !important;
-  
+
 }
 
-.text-black{
+.text-black {
   color: black !important;
 }
 
@@ -50,38 +70,65 @@ html, body{
   font-size: 2rem;
   margin: 0px 20px;
   font-weight: 700;
-  background: -webkit-linear-gradient( rgb(41, 243, 182), rgb(66, 210, 249));
+  background: -webkit-linear-gradient(rgb(41, 243, 182), rgb(66, 210, 249));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   color: transparent !important;
   background-color: white !important;
 }
 
 
-.details-card{
-  background-image: linear-gradient(to right,rgba(3,37,65,1) 50%, rgba(3,37,65,1) 100% );
+.details-card {
+  background-image: linear-gradient(to right, rgba(3, 37, 65, 1) 50%, rgba(3, 37, 65, 1) 100%);
 }
 
-.top-search-card{
+.top-search-card {
   background-image: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg");
   background-position: center;
 }
 
-.search_bar_btn{
-  background: -webkit-linear-gradient(left, rgb(77, 227, 182), rgb(66, 210, 249) ) !important;
+.search_bar_btn {
+  background: -webkit-linear-gradient(left, rgb(77, 227, 182), rgb(66, 210, 249)) !important;
   border-radius: 1rem !important;
   padding: 10px 30px !important;
   margin: 2px !important;
 }
 
+.footer-css {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 
+.vote_average{
+  border: 2px solid white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  padding: 4px;
+}
+
+.trailerLink{
+  text-decoration:  none;
+  color: white;
+  background-color: black;
+  border-radius: 11px;
+  padding: 4px;
+  width: 100px;
+  font-weight: 700;
+  font-size: medium;
+  text-align: center;
+}
 
 
-
-
-/* style={{backgroundImage:`url(${"https://image.tmdb.org/t/p/w500" + movieDetails.backdrop_path} )` , backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */

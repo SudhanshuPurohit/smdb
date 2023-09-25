@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import popularAxios from '@/utils/popularAxios'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import Link from 'next/link';
 
 
 const page = () => {
@@ -41,12 +42,12 @@ const page = () => {
           <div className="card-body d-flex flex-column justify-content-between">
             <h5 className="card-title">{elem.original_title}</h5>
             <p className="card-text">{elem.release_date}</p>
-            <a href={"/details/" + `${elem.id}`} className="btn btn-color">Get Details</a>
+            <Link href={"/details/" + `${elem.id}`} className="btn btn-color">Get Details</Link>
           </div>
         </div>
         )) :
-        <div class="spinner-border text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
+        <div className="spinner-border text-primary" role="status">
+  <span className="visually-hidden">Loading...</span>
 </div>
       }
 
